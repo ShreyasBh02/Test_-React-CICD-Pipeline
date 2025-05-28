@@ -19,9 +19,15 @@ jobs:
       - name: "Check node version"
         run: node --version
       
-      - name: "List Directories"
+      - name: "List Directories-Before"
         run: ls
 
+      - name: "Installing Dependencies"
+        run: npm install
+      
+      - name: "List Directories -After"
+        run: ls
+      
       - name: "Clone the Repository"
         uses: actions/checkout@v4
       
@@ -30,11 +36,15 @@ jobs:
         
       - name: "Run Tests"
         run: npm run test
+      
+      - name: "Run Build"
+        run: npm run build
+      
+      - name: "Upload product-ready build files"
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: ./dist
+
   
-      - name: "Installing Dependencies"
-        run: npm install
-      
-      - name: "List Directories"
-        run: ls
-      
         
