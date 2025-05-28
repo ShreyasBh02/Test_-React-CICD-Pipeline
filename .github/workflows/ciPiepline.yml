@@ -1,6 +1,6 @@
 name: "Sample React CI Piepline"
 
-On:
+on:
   push:
     branches:
       - main
