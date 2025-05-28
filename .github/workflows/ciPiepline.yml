@@ -1,4 +1,4 @@
-name: "Sample React CI Piepline"
+name: "Sample React CI Pipeline"
 
 on:
   push:
@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: '21'
       
+      - name: "Clone the Repository"
+        uses: actions/checkout@v4
+
       - name: "Check node version"
         run: node --version
       
@@ -28,9 +31,6 @@ jobs:
       - name: "List Directories -After"
         run: ls
       
-      - name: "Clone the Repository"
-        uses: actions/checkout@v4
-      
       - name: "Run Linting"
         run: npm run lint
         
@@ -39,7 +39,10 @@ jobs:
       
       - name: "Run Build"
         run: npm run build
-      
+
+      - name: "Check Build Directory"
+        run: ls -al ./dist/
+
       - name: "Upload product-ready build files"
         uses: actions/upload-artifact@v4
         with:
