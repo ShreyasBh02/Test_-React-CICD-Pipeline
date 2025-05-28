@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from '../App' // Your main React component
+import {  test, expect } from 'vitest';
+
 
 test('renders the heading', () => {
   render(<App />)
