@@ -25,12 +25,16 @@ jobs:
       - name: "Clone the Repository"
         uses: actions/checkout@v4
       
+      - name: "Run Tests"
+        run: npm run test
+
+      - name: "Run Linting"
+        run: npm run lint
+
       - name: "Installing Dependencies"
         run: npm install
       
       - name: "List Directories"
         run: ls
       
-      - name: "Run Tests"
-        run: npm run test
         
