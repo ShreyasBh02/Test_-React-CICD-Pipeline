@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Setup nnode JS"
+      - name: "Setup Node JS"
         uses: actions/setup-node@v4
         with:
           node-version: '21'
       
       - name: "Check node version"
         run: node --version
+      
+      - name: "Clone the Repository"
+        uses: actions/checkout@v4
 
