@@ -19,6 +19,9 @@ jobs:
       - name: "Check node version"
         run: node --version
       
+      - name: "List Directories"
+        run: ls
+
       - name: "Clone the Repository"
         uses: actions/checkout@v4
       
