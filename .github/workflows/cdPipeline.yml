@@ -30,5 +30,4 @@ jobs:
           github-token: ${{github.token}}
 
       - name: "Deploy to Vercel"
-        run: vercel --prod --token=${{ secrets.VIRCELTOKENREACT }} --yes 
-
+        run: vercel --prod --token=${{ secrets.VERCELTOKENREACT }} --yes --name=react-cicd-pipeline
