@@ -30,6 +30,4 @@ jobs:
           github-token: ${{github.token}}
 
       - name: "Deploy to Vercel"
-        run: vercel --prod --token=$VERCEL_TOKEN --confirm --name=React_CICD Pipeline
-        env:
-          VERCEL_TOKEN: ${{ secrets.VIRCELTOKENREACT }}
+        run: vercel --prod --token=${{ secrets.VIRCELTOKENREACT }} --confirm --name=React_CICD Pipeline
