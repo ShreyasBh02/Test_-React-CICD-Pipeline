@@ -28,9 +28,6 @@ jobs:
           name: my-artifact
           run-id: ${{github.event.workflow_run.id}}
           github-token: ${{github.token}}
-    
-      - name: "Check build directory"
-        run: ls -al ./build/
 
       - name: "Deploy to Vercel"
         run: vercel --prod --token=$VERCEL_TOKEN --confirm --name=React_CICD Pipeline
