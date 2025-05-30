@@ -10,21 +10,29 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: Prod_React CICD Pipeline
 
     steps:
+      - name: "Setup Node JS"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+      
+      - name: "Setup vercel CLI"
+        run: npm install -g vercel
+    
+
       - name: "Download product-ready build files"
         uses: actions/download-artifact@v4
         with:
-          name: my-artifact
-          path: ./build/
-
+          name: build
+          run-id: ${{github.event.workflow_run.id}}
+          github-token: ${{github.token}}
+    
       - name: "Check build directory"
         run: ls -al ./build/
 
-      - name: "Deploy to Server"
-        run: |
-          echo "Deploying..."
-          scp -r ./build/ user@server:/var/www/html/
-
-      
-  
+      - name: "Deploy to Vercel"
+        run: vercel --prod --token=$VERCEL_TOKEN --confirm --name=React_CICD Pipeline
+        env:
+          VERCEL_TOKEN: ${{ secrets.VIRCELTOKENREACT }}
