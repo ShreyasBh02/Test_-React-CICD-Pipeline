@@ -47,5 +47,5 @@ jobs:
           # Deploy the current directory (Vercel will build automatically)
           vercel --prod \
             --token=${{ secrets.VIRCELTOKENREACT }} \
-            --yes \
-            --name="React-CICD-Pipeline"
+            --yes
+            
