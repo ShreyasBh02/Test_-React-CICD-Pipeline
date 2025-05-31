@@ -5,7 +5,9 @@ on:
        workflows: ["Sample React CI Pipeline"]
        types:
         - completed
-
+       branches:
+        - main
+        - master
 
 jobs:
   deploy:
