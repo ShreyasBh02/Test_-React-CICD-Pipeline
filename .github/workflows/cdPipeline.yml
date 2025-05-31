@@ -46,9 +46,10 @@ jobs:
 
       - name: "Deploy to Vercel"
         run: |
-          # Remove any existing vercel config that might have invalid names
-          rm -f .vercel/project.json
-          # Deploy with force flag to bypass cached settings
-          vercel --prod \
+            rm -f .vercel/project.json
+            vercel --prod \
             --token=${{ secrets.VIRCELTOKENREACT }} \
-            --yes 
+            --yes \
+            --confirm \
+            --name=my-react-app
+
